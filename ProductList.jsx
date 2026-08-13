@@ -6,19 +6,31 @@ function ProductList() {
   const dispatch = useDispatch();
   const cartCount = useSelector(state => state.cart.totalQuantity);
 
-  // Example product data grouped into categories
+  // ✅ Expanded product data: at least 6 unique plants per category
   const categories = {
     "Indoor Plants": [
       { id: 1, name: "Snake Plant", price: 15, image: "/images/snake.jpg" },
       { id: 2, name: "Peace Lily", price: 20, image: "/images/peace.jpg" },
+      { id: 3, name: "Spider Plant", price: 12, image: "/images/spider.jpg" },
+      { id: 4, name: "ZZ Plant", price: 18, image: "/images/zz.jpg" },
+      { id: 5, name: "Areca Palm", price: 25, image: "/images/areca.jpg" },
+      { id: 6, name: "Pothos", price: 10, image: "/images/pothos.jpg" },
     ],
     "Outdoor Plants": [
-      { id: 3, name: "Rose Bush", price: 25, image: "/images/rose.jpg" },
-      { id: 4, name: "Hibiscus", price: 18, image: "/images/hibiscus.jpg" },
+      { id: 7, name: "Rose Bush", price: 25, image: "/images/rose.jpg" },
+      { id: 8, name: "Hibiscus", price: 18, image: "/images/hibiscus.jpg" },
+      { id: 9, name: "Bougainvillea", price: 22, image: "/images/bougainvillea.jpg" },
+      { id: 10, name: "Jasmine", price: 15, image: "/images/jasmine.jpg" },
+      { id: 11, name: "Marigold", price: 8, image: "/images/marigold.jpg" },
+      { id: 12, name: "Sunflower", price: 12, image: "/images/sunflower.jpg" },
     ],
     "Succulents": [
-      { id: 5, name: "Aloe Vera", price: 12, image: "/images/aloe.jpg" },
-      { id: 6, name: "Echeveria", price: 10, image: "/images/echeveria.jpg" },
+      { id: 13, name: "Aloe Vera", price: 12, image: "/images/aloe.jpg" },
+      { id: 14, name: "Echeveria", price: 10, image: "/images/echeveria.jpg" },
+      { id: 15, name: "Jade Plant", price: 14, image: "/images/jade.jpg" },
+      { id: 16, name: "Cactus", price: 9, image: "/images/cactus.jpg" },
+      { id: 17, name: "Haworthia", price: 11, image: "/images/haworthia.jpg" },
+      { id: 18, name: "Sedum", price: 13, image: "/images/sedum.jpg" },
     ]
   };
 
@@ -31,7 +43,7 @@ function ProductList() {
 
   return (
     <div>
-      {/* Navbar */}
+      {/* ✅ Consistent Navbar */}
       <nav style={{ backgroundColor: "#222", padding: "10px", color: "#fff" }}>
         <a href="index.html" style={{ margin: "0 10px", color: "#fff" }}>Home</a>
         <a href="products.html" style={{ margin: "0 10px", color: "#fff" }}>Plants</a>
