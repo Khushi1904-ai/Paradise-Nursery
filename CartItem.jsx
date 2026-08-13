@@ -1,26 +1,39 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addToCart, removeFromCart, clearCart } from './CartSlice';
+import { addToCart, removeFromCart } from './CartSlice';
 
 function CartItem() {
   const dispatch = useDispatch();
-  const { cartItems, totalAmount } = useSelector(state => state.cart);
+  const { cartItems } = useSelector(state => state.cart);
+
+  // Dedicated function to calculate total cart amount
+  const calculateTotalAmount = () => {
+    return cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
+  };
 
   const handleIncrease = (item) => {
     dispatch(addToCart(item));
   };
 
   const handleDecrease = (id) => {
-    // Decrease quantity by removing one unit
     const item = cartItems.find(i => i.id === id);
-    if (item && item.quantity > 1) {
-      dispatch(removeFromCart(id)); // remove all, then re-add with decremented quantity
-      const updatedItem = { ...item, quantity: item.quantity - 1 };
-      for (let i = 0; i < updatedItem.quantity; i++) {
-        dispatch(addToCart({ id: updatedItem.id, name: updatedItem.name, price: updatedItem.price, image: updatedItem.image }));
+    if (item) {
+      if (item.quantity > 1) {
+        // Remove one unit by decrementing quantity
+        dispatch(removeFromCart(id));
+        const updatedItem = { ...item, quantity: item.quantity - 1 };
+        for (let i = 0; i < updatedItem.quantity; i++) {
+          dispatch(addToCart({
+            id: updatedItem.id,
+            name: updatedItem.name,
+            price: updatedItem.price,
+            image: updatedItem.image
+          }));
+        }
+      } else {
+        // If quantity is 1, remove item completely
+        dispatch(removeFromCart(id));
       }
-    } else {
-      dispatch(removeFromCart(id));
     }
   };
 
@@ -68,7 +81,10 @@ function CartItem() {
             </div>
           ))}
 
-          <h2 style={{ textAlign: "right", marginTop: "20px" }}>Total Amount: ${totalAmount}</h2>
+          {/* Use dedicated function for total */}
+          <h2 style={{ textAlign: "right", marginTop: "20px" }}>
+            Total Amount: ${calculateTotalAmount()}
+          </h2>
 
           <div style={{ display: "flex", justifyContent: "space-between", marginTop: "30px" }}>
             <button onClick={() => alert("Checkout Coming Soon")} style={{ backgroundColor: "#2e7d32", color: "#fff", border: "none", padding: "10px 20px", borderRadius: "6px" }}>
