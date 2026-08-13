@@ -1,34 +1,33 @@
 import React from 'react';
 
-function AboutUsPage() {
+function AboutUs() {
   return (
-    <div style={{ padding: '40px', fontFamily: 'Arial, sans-serif' }}>
+    <div className="about-us-container" style={{ padding: '40px', fontFamily: 'Arial, sans-serif' }}>
       <h1>About Paradise Nursery</h1>
       <p>
-        Paradise Nursery is dedicated to bringing greenery and joy into every home.
-        We provide a wide range of plants and garden hardware, helping customers
-        create beautiful and sustainable living spaces.
+        Paradise Nursery is an online plant and garden hardware store dedicated to helping people
+        bring nature into their homes and gardens. We believe that plants not only beautify spaces
+        but also improve health, happiness, and sustainability.
+      </p>
+      <p>
+        Our mission is to provide high-quality houseplants, outdoor plants, and succulents at
+        affordable prices, while offering expert guidance to help customers care for their greenery.
+        Whether you are a beginner or a seasoned gardener, Paradise Nursery has something for you.
+      </p>
+      <p>
+        We specialize in a wide variety of plants, gardening tools, and accessories, ensuring that
+        every customer can find the perfect addition to their living space. Our team is passionate
+        about connecting people with nature and making plant care simple and enjoyable.
       </p>
 
       <h2>Our Team</h2>
-      <div style={{ display: 'flex', gap: '30px', marginTop: '20px' }}>
-        <div style={{ flex: 1, backgroundColor: '#f9f9f9', padding: '20px', borderRadius: '8px' }}>
-          <h3>Khushi</h3>
-          <p>Founder & Web Developer — Designs and builds interactive shopping experiences for our customers.</p>
-        </div>
-
-        <div style={{ flex: 1, backgroundColor: '#f9f9f9', padding: '20px', borderRadius: '8px' }}>
-          <h3>Ravi</h3>
-          <p>Creative Designer — Crafts stunning visuals and ensures our products look inspiring online.</p>
-        </div>
-
-        <div style={{ flex: 1, backgroundColor: '#f9f9f9', padding: '20px', borderRadius: '8px' }}>
-          <h3>Meera</h3>
-          <p>Content Strategist — Curates authentic product descriptions and guides to connect with our customers.</p>
-        </div>
-      </div>
+      <ul>
+        <li><strong>Khushi</strong> — Founder & Web Developer, building interactive shopping experiences.</li>
+        <li><strong>Ravi</strong> — Creative Designer, ensuring our products look inspiring online.</li>
+        <li><strong>Meera</strong> — Content Strategist, curating authentic product descriptions and guides.</li>
+      </ul>
     </div>
   );
 }
 
-export default AboutUsPage;
+export default AboutUs;
